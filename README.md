@@ -52,6 +52,5 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
-- Design inspiration from [altrum.ai](https://www.altrum.ai/)
 - Icons from [Font Awesome](https://fontawesome.com/)
 - Fonts from [Google Fonts](https://fonts.google.com/) 
