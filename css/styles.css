@@ -1,10 +1,22 @@
 /* Overflow Handling - From root styles.css */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
+    max-width: 100%;
+}
+
 body {
-  overflow-x: hidden;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-color);
 }
 
 .container, 
@@ -12,10 +24,10 @@ body {
 main,
 section,
 footer {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 /* Base Styles */
@@ -36,16 +48,7 @@ footer {
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-}
-
 body {
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    color: var(--dark-color);
-    background-color: var(--light-color);
     /* overflow-x already set above */
 }
 
@@ -1548,12 +1551,19 @@ section:not(.hero)::before {
 .projects {
     background-color: #f9fafb;
     position: relative;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.projects .container {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Reduced from 350px to 300px */
     gap: 2rem;
+    width: 100%; /* Ensure it doesn't exceed container width */
+    max-width: 100%; /* Prevent overflow */
 }
 
 .project-card {
@@ -1565,6 +1575,8 @@ section:not(.hero)::before {
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%; /* Ensure it doesn't exceed container width */
+    max-width: 100%; /* Prevent overflow */
 }
 
 .project-card:hover {
@@ -1954,8 +1966,9 @@ footer {
     
     .projects-grid {
         grid-template-columns: 1fr;
-        max-width: 600px;
+        max-width: 100%; /* Ensure it doesn't exceed container width */
         margin: 0 auto;
+        padding: 0 1rem; /* Add padding to prevent touching edges */
     }
     
     .project-image {
@@ -1994,6 +2007,8 @@ footer {
     
     .projects-grid {
         grid-template-columns: 1fr;
+        max-width: 100%; /* Ensure it doesn't exceed container width */
+        padding: 0 1rem; /* Add padding to prevent touching edges */
     }
     
     .contact-content {
@@ -2248,10 +2263,17 @@ footer {
     
     .project-image {
         max-height: 250px;
+        max-width: 100%; /* Ensure images don't cause overflow */
     }
     
     .project-content {
         padding: 1rem;
+        max-width: 100%; /* Ensure content doesn't cause overflow */
+    }
+    
+    .project-tags {
+        flex-wrap: wrap; /* Ensure tags wrap properly */
+        max-width: 100%; /* Prevent overflow */
     }
     
     footer {
@@ -2279,6 +2301,11 @@ footer {
     .footer-text {
         font-size: 0.8rem;
         margin: 0.25rem 0;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr; /* Force single column on small screens */
+        gap: 1.5rem; /* Reduce gap on small screens */
     }
 }
 
