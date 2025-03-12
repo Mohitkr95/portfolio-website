@@ -1,0 +1,41 @@
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container, 
+.wrapper,
+main,
+section,
+footer {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Make sure images don't cause overflow */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer specific fixes */
+footer {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 768px) {
+  /* Mobile specific adjustments */
+  .container, 
+  .wrapper {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+} 

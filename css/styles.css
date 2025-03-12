@@ -1012,17 +1012,22 @@ section:not(.hero)::before {
 
 /* Footer */
 footer {
+    width: 100%;
+    padding: 2rem 0;
     background-color: var(--dark-color);
     color: white;
-    padding: 3rem 0;
+    margin-top: 4rem;
+    position: relative;
+    bottom: 0;
+    left: 0;
 }
 
 .footer-content {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 /* Footer Logo */
@@ -1216,10 +1221,34 @@ footer {
     .footer-content {
         flex-direction: column;
         text-align: center;
+        padding: 0;
+        gap: 1rem;
     }
     
     .footer-links {
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
+        gap: 0.75rem;
+        width: 100%;
+        margin-top: 0.75rem;
+    }
+    
+    .footer-text {
+        order: 2;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    footer {
+        padding: 1.5rem 1rem;
+        height: auto;
+        position: relative;
+    }
+    
+    .footer-logo {
+        font-size: 1.8rem;
+        margin-bottom: 0;
     }
     
     .education-item {
@@ -1378,6 +1407,33 @@ footer {
     
     .project-content {
         padding: 1rem;
+    }
+    
+    footer {
+        padding: 1.25rem 1rem;
+        margin-top: 3rem;
+    }
+    
+    .footer-links {
+        gap: 0.5rem;
+    }
+    
+    .footer-links a {
+        font-size: 0.85rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .footer-content {
+        gap: 0.75rem;
+    }
+    
+    .footer-logo {
+        font-size: 1.6rem;
+    }
+    
+    .footer-text {
+        font-size: 0.8rem;
+        margin: 0.25rem 0;
     }
 }
 
