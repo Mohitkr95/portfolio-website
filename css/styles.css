@@ -111,14 +111,15 @@ header {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease; /* Only transition the box-shadow, not the height */
+    height: 80px; /* Set fixed height on the header element itself */
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 80px; /* Keep this consistent with header height */
 }
 
 /* Logo Styling */
@@ -131,24 +132,26 @@ header .container {
     position: relative;
     transition: all 0.3s ease;
     text-transform: lowercase;
-    padding-bottom: 2px;
+    padding: 0; /* Remove padding-bottom */
     text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
-    display: inline-block;
+    display: flex; /* Change to flex for better centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.logo-image {
+    max-height: 75px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logo-image {
+    transform: translateY(-2px);
 }
 
 .logo::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--primary-color);
-    transform: scaleX(0.8);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-    opacity: 0.8;
-    border-radius: 2px;
+    content: none;
 }
 
 .logo:hover {
@@ -162,7 +165,9 @@ header .container {
 
 .logo-link {
     text-decoration: none;
-    display: block;
+    display: flex; /* Change to flex for better centering */
+    align-items: center; /* Center items vertically */
+    height: 100%; /* Take full height of container */
     transition: transform 0.3s ease;
     cursor: pointer;
 }
@@ -358,6 +363,7 @@ section:not(.hero)::before {
 /* About Section */
 .about {
     background-color: #f9fafb;
+    padding: 5rem 0;
 }
 
 .about-content {
@@ -384,6 +390,7 @@ section:not(.hero)::before {
     margin-bottom: 1.5rem;
     color: var(--gray-color);
     font-size: 1.1rem;
+    text-align: justify;
 }
 
 .about-stats {
@@ -408,6 +415,172 @@ section:not(.hero)::before {
     font-size: 0.9rem;
     color: var(--gray-color);
     margin-top: 0.5rem;
+}
+
+@media (max-width: 992px) {
+    section {
+        padding: 4rem 0;
+    }
+    
+    section:not(.hero) {
+        margin-top: 1.5rem;
+    }
+    
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+    
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    
+    .image-container {
+        margin-bottom: 1rem;
+        max-width: 250px;
+    }
+    
+    .about-text {
+        padding: 0 1rem;
+    }
+    
+    .about-stats {
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    
+    .skills-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .skill-category {
+        padding: 1.25rem;
+    }
+    
+    .skill-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .skill-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .medium-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .medium-image {
+        max-height: 350px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%; /* Ensure it doesn't exceed container width */
+        margin: 0 auto;
+        padding: 0 1rem; /* Add padding to prevent touching edges */
+    }
+    
+    .project-image {
+        height: 200px; /* Slightly smaller height on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 4rem 0;
+    }
+    
+    .about-content {
+        max-width: 85%;
+        gap: 2rem;
+    }
+    
+    .image-container {
+        max-width: 200px;
+    }
+    
+    .about-text {
+        padding: 0 1rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 1.25rem;
+        text-align: justify;
+    }
+    
+    .about-stats {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 2.2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
+    .project-image {
+        height: 180px; /* Smaller height on mobile */
+        max-height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .about {
+        padding: 3.5rem 0;
+    }
+    
+    .about-content {
+        max-width: 90%;
+        gap: 1.5rem;
+    }
+    
+    .image-container {
+        max-width: 180px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .about-text {
+        padding: 0 0.5rem;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        text-align: justify;
+    }
+    
+    .about-stats {
+        gap: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+    
+    .project-image {
+        height: 160px; /* Even smaller height on small mobile */
+        max-height: 160px;
+    }
 }
 
 /* Education Section */
@@ -803,6 +976,7 @@ section:not(.hero)::before {
     transition: all 0.3s ease;
     font-size: 1rem;
     line-height: 1.6;
+    text-align: justify;
 }
 
 .timeline-list li::before {
@@ -855,9 +1029,8 @@ section:not(.hero)::before {
 
 @media (max-width: 768px) {
     .timeline-container {
-        padding: 0 25px;
+        padding: 0 1rem;
         margin-top: 20px;
-        position: relative;
     }
     
     .timeline {
@@ -905,9 +1078,15 @@ section:not(.hero)::before {
     }
     
     .timeline-list li {
-        font-size: 0.9rem;
-        line-height: 1.5;
-        padding-left: 1.5rem;
+        font-size: 0.85rem;
+        padding-left: 1.25rem;
+        text-align: justify;
+    }
+    
+    .timeline-list li::before {
+        width: 6px;
+        height: 6px;
+        top: 0.45rem;
     }
     
     /* Adjust timeline tags for better spacing */
@@ -958,7 +1137,7 @@ section:not(.hero)::before {
     
     /* Adjust timeline container and items to prevent overlap with arrows */
     .timeline-container {
-        padding: 0 25px;
+        padding: 0 1rem;
         margin-top: 20px;
         position: relative;
     }
@@ -1115,6 +1294,7 @@ section:not(.hero)::before {
     .timeline-list li {
         font-size: 0.85rem;
         padding-left: 1.25rem;
+        text-align: justify;
     }
     
     .timeline-list li::before {
@@ -1148,6 +1328,10 @@ section:not(.hero)::before {
     
     .timeline-arrow.next {
         right: 10px;
+    }
+    
+    .logo-image {
+        max-height: 30px;
     }
 }
 
@@ -1426,7 +1610,7 @@ section:not(.hero)::before {
 
 @media (max-width: 768px) {
     .skills-container {
-        padding: 0 25px;
+        padding: 0 1rem;
         margin-top: 20px;
     }
     
@@ -1591,7 +1775,7 @@ section:not(.hero)::before {
     padding: 0;
     margin: 0;
     position: relative;
-    height: auto;
+    height: 220px; /* Fixed height for consistency */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1599,9 +1783,9 @@ section:not(.hero)::before {
 
 .project-image img {
     max-width: 100%;
-    width: auto;
-    height: auto;
-    max-height: 300px;
+    width: 100%; /* Make image fill the container width */
+    height: 100%; /* Make image fill the container height */
+    object-fit: cover; /* Maintain aspect ratio while covering container */
     display: block;
     margin: 0 auto;
     padding: 0;
@@ -1641,6 +1825,7 @@ section:not(.hero)::before {
     margin-bottom: 1rem;
     line-height: 1.6;
     font-size: 0.95rem;
+    text-align: justify;
 }
 
 .project-tags {
@@ -1706,6 +1891,7 @@ section:not(.hero)::before {
 .contact-info p {
     color: var(--gray-color);
     margin-bottom: 2rem;
+    text-align: justify;
 }
 
 .contact-details {
@@ -1807,7 +1993,7 @@ section:not(.hero)::before {
 /* Footer */
 footer {
     width: 100%;
-    padding: 2rem 0;
+    padding: 2.5rem 0;
     background-color: var(--dark-color);
     color: white;
     margin-top: 4rem;
@@ -1821,7 +2007,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 /* Footer Logo */
@@ -1834,9 +2020,11 @@ footer {
     position: relative;
     transition: all 0.3s ease;
     text-transform: lowercase;
-    padding-bottom: 2px;
+    padding: 0; /* Remove padding-bottom */
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-    display: inline-block;
+    display: flex; /* Change to flex for better centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
 }
 
 .footer-logo::after {
@@ -1929,11 +2117,23 @@ footer {
     
     .about-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
+        max-width: 90%;
+        margin: 0 auto;
     }
     
     .image-container {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        max-width: 250px;
+    }
+    
+    .about-text {
+        padding: 0 1rem;
+    }
+    
+    .about-stats {
+        justify-content: center;
+        margin-top: 2rem;
     }
     
     .skills-content {
@@ -1972,7 +2172,7 @@ footer {
     }
     
     .project-image {
-        max-height: 350px;
+        height: 200px; /* Slightly smaller height on tablets */
     }
 }
 
@@ -1989,12 +2189,20 @@ footer {
         font-size: 2rem;
     }
     
+    header {
+        height: 80px; /* Keep header height consistent on mobile */
+    }
+    
     header .container {
-        height: 70px;
+        height: 80px; /* Keep container height consistent on mobile */
+    }
+    
+    .logo-image {
+        max-height: 40px;
     }
     
     .hero h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     
     .typewriter {
@@ -2037,139 +2245,9 @@ footer {
         margin: 0.5rem 0;
     }
     
-    footer {
-        padding: 1.5rem 1rem;
-        height: auto;
-        position: relative;
-    }
-    
-    .footer-logo {
-        font-size: 1.8rem;
-        margin-bottom: 0;
-    }
-    
-    .education-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .education-logo {
-        margin-bottom: 1rem;
-        width: 70px;
-        height: 70px;
-    }
-    
-    .skill-category h3 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
-    }
-    
-    .skill-item {
-        padding: 0.4rem;
-    }
-    
-    .skill-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 1rem;
-    }
-    
-    .timeline-content {
-        margin-left: 1.5rem;
-        padding: 1.25rem;
-    }
-    
-    .timeline-body p {
-        padding-left: 1.25rem;
-    }
-    
-    .timeline-body p:before {
-        font-size: 1rem;
-    }
-    
-    .company {
-        margin-bottom: 0.5rem;
-        display: block;
-    }
-    
-    .medium-intro {
-        font-size: 1rem;
-    }
-    
-    .medium-card-content h3 {
-        font-size: 1.1rem;
-    }
-    
-    .project-content h3 {
-        font-size: 1.1rem;
-        min-height: 2.5rem;
-    }
-    
-    .project-image {
-        max-height: 300px;
-    }
-    
-    .mobile-menu-btn {
-        display: flex;
-    }
-    
-    nav {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        width: 250px;
-        height: calc(100vh - 70px);
-        background-color: white;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease, box-shadow 0.3s ease;
-        padding: 1.5rem;
-        z-index: 999;
-        overflow-y: auto;
-    }
-    
-    nav.active {
-        right: 0;
-        box-shadow: -10px 0 20px rgba(0, 0, 0, 0.15);
-    }
-    
-    nav ul {
-        flex-direction: column;
-        gap: 1.5rem;
-        padding-top: 1rem;
-    }
-    
-    nav ul li {
-        width: 100%;
-        opacity: 0;
-        transform: translateX(20px);
-        transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-    
-    nav.active ul li {
-        opacity: 1;
-        transform: translateX(0);
-        transition-delay: calc(0.05s * var(--item-index, 0));
-    }
-    
-    nav ul li:nth-child(1) { --item-index: 1; }
-    nav ul li:nth-child(2) { --item-index: 2; }
-    nav ul li:nth-child(3) { --item-index: 3; }
-    nav ul li:nth-child(4) { --item-index: 4; }
-    nav ul li:nth-child(5) { --item-index: 5; }
-    nav ul li:nth-child(6) { --item-index: 6; }
-    nav ul li:nth-child(7) { --item-index: 7; }
-    
-    nav ul li a {
-        display: block;
-        padding: 0.75rem 0.5rem;
-        width: 100%;
-        border-radius: 6px;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    
-    nav ul li a:hover {
-        background-color: rgba(99, 102, 241, 0.1);
-        color: var(--primary-color);
+    .projects-grid {
+        grid-template-columns: 1fr; /* Force single column on small screens */
+        gap: 1.5rem; /* Reduce gap on small screens */
     }
 }
 
@@ -2410,6 +2488,7 @@ footer {
     margin-bottom: 1rem;
     line-height: 1.6;
     flex-grow: 1;
+    text-align: justify;
 }
 
 .medium-date {

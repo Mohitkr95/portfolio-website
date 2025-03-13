@@ -100,7 +100,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         if (targetElement) {
             window.scrollTo({
-                top: targetElement.offsetTop - 70, // Adjust for header height
+                top: targetElement.offsetTop - 80, // Adjust for consistent header height
                 behavior: 'smooth'
             });
         }
@@ -114,13 +114,13 @@ let lastScrollY = 0;
 window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
     
-    // Add shadow and reduce height when scrolling down
+    // Add shadow when scrolling down but maintain consistent height
     if (scrollY > 50) {
         header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-        header.style.height = '70px';
+        // Removed the height change to keep header size consistent
     } else {
         header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
-        header.style.height = '80px';
+        // Removed the height change to keep header size consistent
     }
     
     lastScrollY = scrollY;
