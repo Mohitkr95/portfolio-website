@@ -1331,7 +1331,7 @@ section:not(.hero)::before {
     }
     
     .logo-image {
-        max-height: 30px;
+        max-height: 45px; /* Increased from 30px to 45px for larger logo on small mobile */
     }
 }
 
@@ -2198,7 +2198,7 @@ footer {
     }
     
     .logo-image {
-        max-height: 40px;
+        max-height: 55px; /* Increased from 40px to 55px for larger logo on mobile */
     }
     
     .hero h1 {
