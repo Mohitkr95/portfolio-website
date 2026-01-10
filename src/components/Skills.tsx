@@ -1,9 +1,6 @@
-import { Brain, Database, Wrench, Package } from 'lucide-react';
-
 const skillCategories = [
   {
     title: 'Technologies',
-    icon: Brain,
     skills: [
       'Machine Learning',
       'Data Science',
@@ -19,7 +16,6 @@ const skillCategories = [
   },
   {
     title: 'Languages & Databases',
-    icon: Database,
     skills: [
       'Python',
       'GoLang',
@@ -36,7 +32,6 @@ const skillCategories = [
   },
   {
     title: 'Developer Tools',
-    icon: Wrench,
     skills: [
       'Docker',
       'Kubernetes',
@@ -55,7 +50,6 @@ const skillCategories = [
   },
   {
     title: 'Libraries & Frameworks',
-    icon: Package,
     skills: [
       'FastAPI',
       'Flask',
@@ -73,44 +67,37 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 bg-slate-50 dark:bg-neutral-950">
+    <section id="skills" className="py-24 bg-slate-50 dark:bg-neutral-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-12">
+        <div className="mb-16">
           <p className="text-sm text-emerald-600 dark:text-emerald-400 mb-2 font-medium">Skills</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
             Tech Stack
           </h2>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((category, index) => {
-            const Icon = category.icon;
-            return (
-              <div
-                key={index}
-                className="bg-white dark:bg-neutral-900 rounded-xl p-6 border border-slate-200 dark:border-neutral-800 hover:border-emerald-500 dark:hover:border-emerald-500 transition-all duration-200"
-              >
-                <div className="inline-flex p-3 rounded-lg bg-emerald-100 dark:bg-emerald-950/50 mb-4">
-                  <Icon className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                </div>
+        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
+          {skillCategories.map((category, index) => (
+            <div
+              key={index}
+              className="bg-white dark:bg-neutral-900 rounded-lg p-4 sm:p-6 border border-slate-200 dark:border-neutral-800"
+            >
+              <h3 className="text-base sm:text-lg font-semibold text-slate-900 dark:text-white mb-4">
+                {category.title}
+              </h3>
 
-                <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4">
-                  {category.title}
-                </h3>
-
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill, skillIndex) => (
-                    <span
-                      key={skillIndex}
-                      className="px-3 py-1.5 text-xs font-medium bg-slate-100 dark:bg-neutral-800 text-slate-700 dark:text-slate-300 rounded-md hover:bg-emerald-100 dark:hover:bg-emerald-950/50 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors cursor-default"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, skillIndex) => (
+                  <span
+                    key={skillIndex}
+                    className="px-3 py-1.5 text-sm bg-slate-100 dark:bg-neutral-800 text-slate-700 dark:text-slate-300 rounded-md hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
