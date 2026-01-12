@@ -1,77 +1,81 @@
-import { Brain, Code2, Database, Wrench, Layers, Zap, Cloud, GitBranch, Boxes, Network } from 'lucide-react';
+import { Brain, Database, Wrench, Layers } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 const skillCategories = [
   {
     title: 'Technologies',
     icon: Brain,
     skills: [
-      { name: 'Machine Learning', icon: '🤖' },
-      { name: 'Data Science', icon: '📊' },
-      { name: 'Deep Learning', icon: '🧠' },
-      { name: 'Computer Vision', icon: '👁️' },
-      { name: 'NLP (LLMs)', icon: '💬' },
-      { name: 'Data Engineering', icon: '⚙️' },
-      { name: 'Cloud-Native Architectures', icon: '☁️' },
-      { name: 'Distributed Systems', icon: '🌐' },
-      { name: 'MLOps', icon: '🔄' },
-      { name: 'DevOps', icon: '🚀' },
+      { name: 'Machine Learning', logo: 'scikitlearn' },
+      { name: 'Data Science', logo: 'pandas' },
+      { name: 'Deep Learning', logo: 'tensorflow' },
+      { name: 'Computer Vision', logo: 'opencv' },
+      { name: 'NLP (LLMs)', logo: 'openai' },
+      { name: 'Data Engineering', logo: 'apachespark' },
+      { name: 'Cloud-Native Architectures', logo: 'kubernetes' },
+      { name: 'Distributed Systems', logo: 'apachekafka' },
+      { name: 'MLOps', logo: 'mlflow' },
+      { name: 'DevOps', logo: 'gitlab' },
     ],
   },
   {
     title: 'Languages & Databases',
     icon: Database,
     skills: [
-      { name: 'Python', icon: '🐍' },
-      { name: 'GoLang', icon: '🔷' },
-      { name: 'C/C++', icon: '⚡' },
-      { name: 'Qdrant', icon: '🔍' },
-      { name: 'Weaviate', icon: '🕸️' },
-      { name: 'Graph Databases', icon: '🕸️' },
-      { name: 'PostgreSQL', icon: '🐘' },
-      { name: 'Elasticsearch', icon: '🔎' },
-      { name: 'FAISS', icon: '📐' },
-      { name: 'Redis', icon: '⚡' },
-      { name: 'Memcached', icon: '💾' },
+      { name: 'Python', logo: 'python' },
+      { name: 'GoLang', logo: 'go' },
+      { name: 'C/C++', logo: 'cplusplus' },
+      { name: 'Qdrant', logo: 'qdrant' },
+      { name: 'Weaviate', logo: 'weaviate' },
+      { name: 'Graph Databases', logo: 'neo4j' },
+      { name: 'PostgreSQL', logo: 'postgresql' },
+      { name: 'Elasticsearch', logo: 'elasticsearch' },
+      { name: 'FAISS', logo: 'meta' },
+      { name: 'Redis', logo: 'redis' },
+      { name: 'Memcached', logo: 'memcached' },
     ],
   },
   {
     title: 'Developer Tools',
     icon: Wrench,
     skills: [
-      { name: 'Docker', icon: '🐳' },
-      { name: 'Kubernetes', icon: '☸️' },
-      { name: 'CI/CD', icon: '♻️' },
-      { name: 'Jenkins', icon: '🔧' },
-      { name: 'Terraform', icon: '🏗️' },
-      { name: 'Prometheus', icon: '📈' },
-      { name: 'Grafana', icon: '📊' },
-      { name: 'Git', icon: '📝' },
-      { name: 'AWS', icon: '☁️' },
-      { name: 'Google Cloud', icon: '☁️' },
-      { name: 'Azure', icon: '☁️' },
-      { name: 'IBM Cloud', icon: '☁️' },
-      { name: 'OCI', icon: '☁️' },
+      { name: 'Docker', logo: 'docker' },
+      { name: 'Kubernetes', logo: 'kubernetes' },
+      { name: 'CI/CD', logo: 'githubactions' },
+      { name: 'Jenkins', logo: 'jenkins' },
+      { name: 'Terraform', logo: 'terraform' },
+      { name: 'Prometheus', logo: 'prometheus' },
+      { name: 'Grafana', logo: 'grafana' },
+      { name: 'Git', logo: 'git' },
+      { name: 'AWS', logo: 'amazonaws' },
+      { name: 'Google Cloud', logo: 'googlecloud' },
+      { name: 'Azure', logo: 'microsoftazure' },
+      { name: 'IBM Cloud', logo: 'ibmcloud' },
+      { name: 'OCI', logo: 'oracle' },
     ],
   },
   {
     title: 'Libraries & Frameworks',
     icon: Layers,
     skills: [
-      { name: 'FastAPI', icon: '⚡' },
-      { name: 'Flask', icon: '🌶️' },
-      { name: 'Langchain', icon: '🔗' },
-      { name: 'LlamaIndex', icon: '🦙' },
-      { name: 'Gin', icon: '🍸' },
-      { name: 'TensorFlow', icon: '🔷' },
-      { name: 'PyTorch', icon: '🔥' },
-      { name: 'Airflow', icon: '🌊' },
-      { name: 'Nginx', icon: '🟢' },
-      { name: 'Celery', icon: '🥬' },
+      { name: 'FastAPI', logo: 'fastapi' },
+      { name: 'Flask', logo: 'flask' },
+      { name: 'Langchain', logo: 'langchain' },
+      { name: 'LlamaIndex', logo: 'llamaindex' },
+      { name: 'Gin', logo: 'gin' },
+      { name: 'TensorFlow', logo: 'tensorflow' },
+      { name: 'PyTorch', logo: 'pytorch' },
+      { name: 'Airflow', logo: 'apacheairflow' },
+      { name: 'Nginx', logo: 'nginx' },
+      { name: 'Celery', logo: 'celery' },
     ],
   },
 ];
 
 export default function Skills() {
+  const { theme } = useTheme();
+  const logoColor = theme === 'dark' ? 'white' : '334155';
+
   return (
     <section id="skills" className="py-24 bg-slate-50 dark:bg-neutral-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,7 +109,11 @@ export default function Skills() {
                       key={skillIndex}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm bg-slate-100 dark:bg-neutral-800 text-slate-700 dark:text-slate-300 rounded-md hover:bg-emerald-50 dark:hover:bg-emerald-950/50 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors cursor-default"
                     >
-                      <span className="text-base">{skill.icon}</span>
+                      <img
+                        src={`https://cdn.simpleicons.org/${skill.logo}/${logoColor}`}
+                        alt={skill.name}
+                        className="w-4 h-4"
+                      />
                       <span>{skill.name}</span>
                     </span>
                   ))}
