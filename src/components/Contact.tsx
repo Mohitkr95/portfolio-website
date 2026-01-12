@@ -1,5 +1,6 @@
-import { Mail, Github, Linkedin, Send, MapPin, Twitter, Newspaper } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, MapPin, Twitter } from 'lucide-react';
 import { useState, FormEvent } from 'react';
+import MediumIcon from './MediumIcon';
 
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -116,7 +117,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="p-4 bg-white dark:bg-neutral-900 rounded-lg border border-slate-200 dark:border-neutral-800 hover:border-slate-400 dark:hover:border-slate-700 transition-all hover:scale-110"
             >
-              <Newspaper className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+              <MediumIcon className="w-6 h-6 text-slate-600 dark:text-slate-300" />
             </a>
           </div>
         </div>

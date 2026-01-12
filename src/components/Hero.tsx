@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, MapPin, ChevronDown, Twitter, Newspaper } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, ChevronDown, Twitter } from 'lucide-react';
+import MediumIcon from './MediumIcon';
 
 const titles = [
   'AI Solution Architect',
@@ -139,7 +140,7 @@ nlp = pipeline("text-classification")`}
             rel="noopener noreferrer"
             className="p-3 rounded-lg bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all border border-slate-200 dark:border-neutral-800"
           >
-            <Newspaper className="w-6 h-6" />
+            <MediumIcon className="w-6 h-6" />
           </a>
           <a
             href="mailto:krmohit101@gmail.com"
