@@ -43,7 +43,7 @@ export default function About() {
                 <div className="pl-4">name = <span className="text-sky-600 dark:text-sky-400">"Mohit Kumar"</span></div>
                 <div className="pl-4">role = <span className="text-sky-600 dark:text-sky-400">"Senior ML Engineer"</span></div>
                 <div className="pl-4">location = <span className="text-sky-600 dark:text-sky-400">"New Delhi, India"</span></div>
-                <div className="pl-4">experience = <span className="text-amber-600 dark:text-amber-400">5</span>  <span className="text-slate-500"># years</span></div>
+                <div className="pl-4">experience = <span className="text-amber-600 dark:text-amber-400">5.5</span>  <span className="text-slate-500"># years</span></div>
               </div>
             </div>
 
