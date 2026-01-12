@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Github, Linkedin, Mail, MapPin, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, ChevronDown, Twitter } from 'lucide-react';
 
 const titles = [
   'AI Solution Architect',
@@ -105,6 +105,14 @@ model = tf.keras.Sequential()`}
             className="p-3 rounded-lg bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 hover:scale-110 transition-all border border-slate-200 dark:border-neutral-800"
           >
             <Linkedin className="w-6 h-6" />
+          </a>
+          <a
+            href="https://x.com/mohitxml"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-lg bg-slate-100 dark:bg-neutral-900 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:scale-110 transition-all border border-slate-200 dark:border-neutral-800"
+          >
+            <Twitter className="w-6 h-6" />
           </a>
           <a
             href="mailto:krmohit101@gmail.com"
