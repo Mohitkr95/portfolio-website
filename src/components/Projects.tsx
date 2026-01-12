@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Zap, Database, FileText } from 'lucide-react';
+import { ExternalLink, Github, Zap, Database, FileText, BookOpen } from 'lucide-react';
 
 const projects = [
   {
@@ -13,6 +13,8 @@ const projects = [
       'Comprehensive CI/CD pipeline with automated model regression testing',
     ],
     tags: ['Python', 'spaCy', 'FastAPI', 'NLP', 'Docker'],
+    github: null,
+    external: null,
   },
   {
     title: 'Image Super Resolution',
@@ -26,6 +28,8 @@ const projects = [
       'TensorRT optimized environment achieving 5x faster inference',
     ],
     tags: ['TensorFlow', 'CNN', 'Computer Vision', 'TensorRT', 'CUDA'],
+    github: 'https://github.com/Mohitkr95/image-super-resolution',
+    external: 'https://ieeexplore.ieee.org/document/9596455',
   },
   {
     title: 'Textual Similarity Analysis',
@@ -39,6 +43,8 @@ const projects = [
       'A/B testing framework comparing different embedding models',
     ],
     tags: ['TensorFlow', 'Vector DB', 'NLP', 'Embeddings', 'HNSW'],
+    github: null,
+    external: null,
   },
 ];
 
@@ -71,12 +77,26 @@ export default function Projects() {
                         {project.title}
                       </h3>
                       <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
-                        <button className="p-1.5 sm:p-2 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
-                          <Github className="w-5 h-5" />
-                        </button>
-                        <button className="p-1.5 sm:p-2 text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
-                          <ExternalLink className="w-5 h-5" />
-                        </button>
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-1.5 sm:p-2 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                          >
+                            <Github className="w-5 h-5" />
+                          </a>
+                        )}
+                        {project.external && (
+                          <a
+                            href={project.external}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-1.5 sm:p-2 text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+                          >
+                            <BookOpen className="w-5 h-5" />
+                          </a>
+                        )}
                       </div>
                     </div>
 

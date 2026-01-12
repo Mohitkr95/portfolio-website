@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Send, MapPin, Twitter } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, MapPin, Twitter, Pen } from 'lucide-react';
 import { useState, FormEvent } from 'react';
 
 export default function Contact() {
@@ -109,6 +109,14 @@ export default function Contact() {
               className="p-4 bg-white dark:bg-neutral-900 rounded-lg border border-slate-200 dark:border-neutral-800 hover:border-slate-400 dark:hover:border-slate-700 transition-all hover:scale-110"
             >
               <Twitter className="w-6 h-6 text-slate-600 dark:text-slate-300" />
+            </a>
+            <a
+              href="https://mohitkr777.medium.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-4 bg-white dark:bg-neutral-900 rounded-lg border border-slate-200 dark:border-neutral-800 hover:border-slate-400 dark:hover:border-slate-700 transition-all hover:scale-110"
+            >
+              <Pen className="w-6 h-6 text-slate-600 dark:text-slate-300" />
             </a>
           </div>
         </div>
