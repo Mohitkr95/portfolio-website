@@ -101,22 +101,22 @@
   }
 
   .animate-float {
-    animation: float 13s ease-in-out infinite;
+    animation: float 20s ease-in-out infinite;
   }
 
   .animate-float-delayed-1 {
-    animation: float 16s ease-in-out infinite;
-    animation-delay: -3s;
+    animation: float 25s ease-in-out infinite;
+    animation-delay: -5s;
   }
 
   .animate-float-delayed-2 {
-    animation: float 18s ease-in-out infinite;
-    animation-delay: -6s;
+    animation: float 30s ease-in-out infinite;
+    animation-delay: -10s;
   }
 
   .animate-float-delayed-3 {
-    animation: float 14s ease-in-out infinite;
-    animation-delay: -9s;
+    animation: float 22s ease-in-out infinite;
+    animation-delay: -15s;
   }
 
   @keyframes float {
