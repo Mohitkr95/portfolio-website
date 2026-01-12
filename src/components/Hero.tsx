@@ -45,23 +45,23 @@ export default function Hero() {
         self.skills = []
         self.experience = 5.5`}
         </div>
-        <div className="absolute top-[35%] right-2 sm:top-48 sm:right-16 font-mono text-[10px] sm:text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-1">
+        <div className="absolute top-[30%] right-2 sm:top-48 sm:right-16 font-mono text-[10px] sm:text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-1">
 {`import tensorflow as tf
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.Dense(128))`}
         </div>
-        <div className="hidden sm:block absolute top-[60%] left-[15%] font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-2">
+        <div className="absolute top-[52%] left-2 sm:top-[60%] sm:left-[15%] font-mono text-[10px] sm:text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-2">
 {`@app.post("/predict")
 async def predict(data: Input):
     return model.predict(data)`}
         </div>
-        <div className="absolute bottom-28 left-2 sm:bottom-32 sm:left-24 font-mono text-[10px] sm:text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-3">
+        <div className="absolute bottom-20 left-2 sm:bottom-32 sm:left-24 font-mono text-[10px] sm:text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-3">
 {`pipeline = Pipeline([
     ('scaler', StandardScaler()),
     ('model', XGBClassifier())
 ])`}
         </div>
-        <div className="hidden md:block absolute bottom-48 right-8 sm:right-24 font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float">
+        <div className="absolute bottom-[42%] right-2 sm:bottom-48 sm:right-24 font-mono text-[10px] sm:text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float">
 {`def deploy_model(model):
     return model.serve()`}
         </div>
