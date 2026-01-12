@@ -1,47 +1,14 @@
-import { Mail, Github, Linkedin, Send, MapPin, Phone } from 'lucide-react';
-import { useState, FormEvent } from 'react';
+import { Mail, Github, Linkedin, Send, MapPin } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'success'>('idle');
 
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-    setErrorMessage('');
-
-    try {
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`;
-
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
-
-      setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-
-      setTimeout(() => {
-        setStatus('idle');
-      }, 5000);
-    } catch (error) {
-      setStatus('error');
-      setErrorMessage('Failed to send message. Please try again or email directly.');
-      console.error('Form submission error:', error);
-    }
+  const handleSubmit = () => {
+    setStatus('success');
+    setTimeout(() => {
+      setStatus('idle');
+    }, 5000);
   };
 
   return (
@@ -59,7 +26,6 @@ export default function Contact() {
             <div className="text-slate-500 dark:text-slate-400 mb-3"># contact.py</div>
             <div className="text-slate-700 dark:text-slate-300 space-y-1">
               <div>email = <span className="text-sky-600 dark:text-sky-400">"krmohit101@gmail.com"</span></div>
-              <div>phone = <span className="text-sky-600 dark:text-sky-400">"+91-9599336589"</span></div>
               <div>location = <span className="text-sky-600 dark:text-sky-400">"New Delhi, India"</span></div>
               <div>status = <span className="text-sky-600 dark:text-sky-400">"Open to opportunities"</span></div>
             </div>
@@ -76,19 +42,6 @@ export default function Contact() {
               <div>
                 <div className="text-xs text-slate-500">email</div>
                 <div className="text-slate-900 dark:text-white">krmohit101@gmail.com</div>
-              </div>
-            </a>
-
-            <a
-              href="tel:+919599336589"
-              className="flex items-center gap-4 p-4 bg-white dark:bg-neutral-900 rounded-lg border border-slate-200 dark:border-neutral-800 hover:border-sky-300 dark:hover:border-sky-800 transition-colors group"
-            >
-              <div className="p-3 bg-sky-50 dark:bg-sky-950/50 rounded-lg group-hover:bg-sky-100 dark:group-hover:bg-sky-950/70 transition-colors">
-                <Phone className="w-5 h-5 text-sky-600 dark:text-sky-400" />
-              </div>
-              <div>
-                <div className="text-xs text-slate-500">phone</div>
-                <div className="text-slate-900 dark:text-white">+91-9599336589</div>
               </div>
             </a>
 
@@ -142,7 +95,7 @@ export default function Contact() {
               Send me a message
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form id="contactForm" action="https://formspree.io/f/xzzebavd" method="POST" onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                   Name
@@ -150,12 +103,10 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-2 bg-slate-50 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 text-slate-900 dark:text-white"
                   placeholder="Your name"
-                  disabled={status === 'loading'}
                 />
               </div>
 
@@ -166,12 +117,10 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   required
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full px-4 py-2 bg-slate-50 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 text-slate-900 dark:text-white"
                   placeholder="your.email@example.com"
-                  disabled={status === 'loading'}
                 />
               </div>
 
@@ -181,13 +130,11 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   required
                   rows={5}
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   className="w-full px-4 py-2 bg-slate-50 dark:bg-neutral-950 border border-slate-200 dark:border-neutral-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 text-slate-900 dark:text-white resize-none"
                   placeholder="Your message..."
-                  disabled={status === 'loading'}
                 />
               </div>
 
@@ -197,28 +144,12 @@ export default function Contact() {
                 </div>
               )}
 
-              {status === 'error' && (
-                <div className="p-4 bg-red-50 dark:bg-red-950/50 border border-red-200 dark:border-red-800 rounded-lg text-red-700 dark:text-red-400">
-                  {errorMessage}
-                </div>
-              )}
-
               <button
                 type="submit"
-                disabled={status === 'loading'}
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 text-white font-medium rounded-lg hover:bg-emerald-700 transition-colors"
               >
-                {status === 'loading' ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Send Message
-                  </>
-                )}
+                <Send className="w-5 h-5" />
+                Send Message
               </button>
             </form>
           </div>
