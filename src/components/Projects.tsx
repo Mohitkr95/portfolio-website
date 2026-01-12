@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Zap, Database, FileText, BookOpen } from 'lucide-react';
+import { Github, Zap, Database, FileText, FileText as Publication } from 'lucide-react';
 
 const projects = [
   {
@@ -92,9 +92,10 @@ export default function Projects() {
                             href={project.external}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="p-1.5 sm:p-2 text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors"
+                            className="p-1.5 sm:p-2 text-slate-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+                            title="View Publication"
                           >
-                            <BookOpen className="w-5 h-5" />
+                            <Publication className="w-5 h-5" />
                           </a>
                         )}
                       </div>
