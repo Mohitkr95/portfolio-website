@@ -39,42 +39,42 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 dark:from-black dark:via-neutral-950 dark:to-black" />
 
       <div className="absolute inset-0 opacity-[0.08] dark:opacity-[0.12]">
-        <div className="absolute top-24 left-4 sm:left-10 font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float">
+        <div className="absolute top-20 left-2 sm:top-24 sm:left-10 font-mono text-[10px] sm:text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float">
 {`class MLEngineer:
     def __init__(self):
         self.skills = []
         self.experience = 5.5`}
         </div>
-        <div className="absolute top-48 right-4 sm:right-16 font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-1">
+        <div className="absolute top-[35%] right-2 sm:top-48 sm:right-16 font-mono text-[10px] sm:text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-1">
 {`import tensorflow as tf
 model = tf.keras.Sequential()
 model.add(tf.keras.layers.Dense(128))`}
         </div>
-        <div className="absolute top-[60%] left-[15%] font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-2">
+        <div className="hidden sm:block absolute top-[60%] left-[15%] font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-2">
 {`@app.post("/predict")
 async def predict(data: Input):
     return model.predict(data)`}
         </div>
-        <div className="absolute bottom-32 left-8 sm:left-24 font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-3">
+        <div className="absolute bottom-28 left-2 sm:bottom-32 sm:left-24 font-mono text-[10px] sm:text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-3">
 {`pipeline = Pipeline([
     ('scaler', StandardScaler()),
     ('model', XGBClassifier())
 ])`}
         </div>
-        <div className="absolute bottom-48 right-8 sm:right-24 font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float">
+        <div className="hidden md:block absolute bottom-48 right-8 sm:right-24 font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float">
 {`def deploy_model(model):
     return model.serve()`}
         </div>
-        <div className="absolute top-[35%] right-[10%] font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-1">
+        <div className="hidden md:block absolute top-[35%] right-[10%] font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-1">
 {`docker build -t ml-api .
 kubectl apply -f deployment.yaml`}
         </div>
-        <div className="absolute top-[70%] right-[20%] font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-2">
+        <div className="hidden sm:block absolute top-[70%] right-[20%] font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-2">
 {`metrics = evaluate_model(
     y_test, predictions
 )`}
         </div>
-        <div className="absolute bottom-[60%] left-[5%] font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-3">
+        <div className="hidden md:block absolute bottom-[60%] left-[5%] font-mono text-xs text-slate-900 dark:text-slate-100 whitespace-pre animate-float-delayed-3">
 {`from transformers import pipeline
 nlp = pipeline("text-classification")`}
         </div>
