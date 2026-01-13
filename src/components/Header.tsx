@@ -3,13 +3,20 @@ import { Moon, Sun, Menu, X, Code2 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const navLinks = [
-  { href: '#about', label: 'about' },
-  { href: '#skills', label: 'skills' },
-  { href: '#experience', label: 'experience' },
-  { href: '#projects', label: 'projects' },
-  { href: '#education', label: 'education' },
-  { href: '#contact', label: 'contact' },
+  { id: 'about', label: 'about' },
+  { id: 'skills', label: 'skills' },
+  { id: 'experience', label: 'experience' },
+  { id: 'projects', label: 'projects' },
+  { id: 'education', label: 'education' },
+  { id: 'contact', label: 'contact' },
 ];
+
+const scrollToSection = (id: string) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+};
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -42,13 +49,13 @@ export default function Header() {
 
             <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
                   className="px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
                 >
                   {link.label}
-                </a>
+                </button>
               ))}
             </div>
 
@@ -77,15 +84,17 @@ export default function Header() {
         <div className="fixed inset-0 top-16 md:hidden z-[100] bg-white dark:bg-black animate-fade-in">
           <div className="flex flex-col items-center justify-center h-full gap-2 px-8">
             {navLinks.map((link, index) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+              <button
+                key={link.id}
+                onClick={() => {
+                  scrollToSection(link.id);
+                  setIsMobileMenuOpen(false);
+                }}
                 className="w-full text-center py-4 text-2xl font-semibold text-slate-700 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-50 dark:hover:bg-neutral-900 rounded-lg transition-all animate-slide-in"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 {link.label}
-              </a>
+              </button>
             ))}
           </div>
         </div>
