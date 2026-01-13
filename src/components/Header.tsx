@@ -42,10 +42,13 @@ export default function Header() {
       >
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <a href="#" className="flex items-center gap-2 text-lg font-semibold text-slate-900 dark:text-white">
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center gap-2 text-lg font-semibold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+            >
               <Code2 className="w-5 h-5 text-emerald-500" />
               <span className="font-mono">mohit_kumar</span>
-            </a>
+            </button>
 
             <div className="hidden md:flex items-center gap-1">
               {navLinks.map((link) => (
