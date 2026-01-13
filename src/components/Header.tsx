@@ -71,7 +71,7 @@ export default function Header() {
         </div>
 
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 top-16 md:hidden z-40 bg-white dark:bg-black animate-fade-in">
+          <div className="fixed inset-0 top-16 md:hidden z-[60] bg-white dark:bg-black animate-fade-in">
             <div className="flex flex-col items-center justify-center h-full gap-2 px-8">
               {navLinks.map((link, index) => (
                 <a
